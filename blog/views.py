@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.template import loader,RequestContext,Context
 from django import template
 import datetime
+from blog.models import BookInfo,HeroInfo
 
 # Create your views here.
 #1.定义视图函数，httprequest
@@ -27,6 +28,15 @@ def currnet_datetime(request):
     now=datetime.datetime.now()
     text['now'] = now
     return render(request,'blog/currnet_datetime.html',text)
+
+def book_list(request):
+    book = BookInfo.objects.all()
+    return render(request,'blog/book_list.html',{"book":book})
+
+def book_detail(request,id):
+    bookdetail = BookInfo.objects.get(id=id)
+    heros = bookdetail.heroinfo_set.all()
+    return render(request,'blog/book_detail.html',{"bookdetail":bookdetail,"heros":heros})
 
 
 
