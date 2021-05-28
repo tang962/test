@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板</title>
+</head>
+<body>
+it now {{content}}
+姓名:{{name}}
+
+
+年龄:{{age}}
+
+
+爱好:{{hobby}}
+
+
+第一个爱好:{{hobby.0}}
+
+
+
+第一个爱好:{{hobby.2}}
+
+
+朋友:{{friend}}
+
+
+朋友名字:{{friend.name}}
+
+
+宠物:{{pet}}
+
+
+<ul>
+    {% for i in list %}
+    <li>{{i}}</li>
+    {% endfor %}
+</ul>
+
+{{list}}
+
+</body>
+</html>
